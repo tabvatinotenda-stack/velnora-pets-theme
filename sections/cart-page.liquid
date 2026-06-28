@@ -1,0 +1,68 @@
+<div class="sec">
+  <div class="sec-kicker">Your order</div>
+  <div class="sec-title">Shopping cart</div>
+  <div class="sec-rule"></div>
+
+  {% if cart.item_count == 0 %}
+    <div class="empty-state">
+      <div class="empty-icon"><i class="ti ti-shopping-bag" aria-hidden="true"></i></div>
+      <div class="empty-title">Your cart is empty</div>
+      <div class="empty-desc">Looks like you haven't added anything yet.</div>
+      <br>
+      <a href="{{ routes.root_url }}" class="btn-solid" style="margin-top:16px">Shop now</a>
+    </div>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post">
+      <table style="width:100%;border-collapse:collapse;margin-bottom:28px">
+        <thead>
+          <tr style="border-bottom:0.5px solid #e8e2d9">
+            <th style="text-align:left;font:700 8px/1 Raleway,sans-serif;color:#2c4a3e;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px">Product</th>
+            <th style="text-align:center;font:700 8px/1 Raleway,sans-serif;color:#2c4a3e;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px">Quantity</th>
+            <th style="text-align:right;font:700 8px/1 Raleway,sans-serif;color:#2c4a3e;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+            <tr style="border-bottom:0.5px solid #e8e2d9">
+              <td style="padding:16px 0;display:flex;align-items:center;gap:14px">
+                {% if item.image %}
+                  <img src="{{ item.image | image_url: width: 80 }}" alt="{{ item.title }}" style="width:60px;height:60px;object-fit:cover;border-radius:2px;border:0.5px solid #e8e2d9">
+                {% endif %}
+                <div>
+                  <div style="font:700 10px/1 Raleway,sans-serif;color:#2c4a3e;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">{{ item.product.title }}</div>
+                  {% unless item.variant.title == 'Default Title' %}
+                    <div style="font:300 9px/1 Raleway,sans-serif;color:#9a9a8a">{{ item.variant.title }}</div>
+                  {% endunless %}
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="font:300 9px/1 Raleway,sans-serif;color:#c9a96e;letter-spacing:1px;text-transform:uppercase;margin-top:6px;display:inline-block">Remove</a>
+                </div>
+              </td>
+              <td style="text-align:center;padding:16px 0">
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="1"
+                  style="width:48px;text-align:center;border:0.5px solid #c8c2b8;border-radius:2px;padding:6px;font:300 11px/1 Raleway,sans-serif;color:#2c4a3e">
+              </td>
+              <td style="text-align:right;padding:16px 0;font:800 13px/1 Raleway,sans-serif;color:#2c4a3e">
+                {{ item.line_price | money }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div style="display:flex;justify-content:flex-end;flex-direction:column;align-items:flex-end;gap:12px">
+        <div style="font:300 10px/1 Raleway,sans-serif;color:#7a7a6a;letter-spacing:1px;text-transform:uppercase">Subtotal</div>
+        <div style="font:800 22px/1 Raleway,sans-serif;color:#2c4a3e">{{ cart.total_price | money }}</div>
+        <div style="font:300 9px/1 Raleway,sans-serif;color:#7a7a6a">Taxes and shipping calculated at checkout</div>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button type="submit" name="update" class="btn-out">Update cart</button>
+          <button type="submit" name="checkout" class="btn-solid">Checkout</button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart Page"
+}
+{% endschema %}
