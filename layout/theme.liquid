@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page_title }} — {{ shop.name }}</title>
+  <title>
+    {%- if request.page_type == 'index' -%}
+      {{ shop.name }} — Better Living for Every Paw
+    {%- else -%}
+      {{ page_title }} — {{ shop.name }}
+    {%- endif -%}
+  </title>
   <meta name="description" content="{{ page_description | escape }}">
 
   {{ content_for_header }}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,700;0,800;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
   {{ 'velnora.css' | asset_url | stylesheet_tag }}
 </head>
 <body>
 
-  {%- render 'announcement-bar' -%}
+  <div class="announce">
+    Free US shipping on orders over $35 &nbsp;·&nbsp; 3–8 day delivery nationwide
+  </div>
+
   {%- render 'header' -%}
 
   <main id="main-content">

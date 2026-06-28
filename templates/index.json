@@ -6,6 +6,13 @@
     },
     "trust-bar": {
       "type": "trust-bar",
+      "blocks": {
+        "trust1": { "type": "trust_item", "settings": { "icon": "ti-truck", "text": "3–8 day US shipping" } },
+        "trust2": { "type": "trust_item", "settings": { "icon": "ti-shield-check", "text": "Safe for all breeds" } },
+        "trust3": { "type": "trust_item", "settings": { "icon": "ti-refresh", "text": "Easy returns" } },
+        "trust4": { "type": "trust_item", "settings": { "icon": "ti-star", "text": "4.8 avg rating" } }
+      },
+      "block_order": ["trust1", "trust2", "trust3", "trust4"],
       "settings": {}
     },
     "category-grid": {
@@ -22,7 +29,55 @@
     },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "blocks": {
+        "faq1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do you ship from?",
+            "answer": "All our products ship from USA-based warehouses. Most orders arrive within 3–8 business days depending on your location."
+          }
+        },
+        "faq2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much does shipping cost?",
+            "answer": "Standard shipping is $5.99 and takes 3–8 business days. Free shipping is available on all orders over $35."
+          }
+        },
+        "faq3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return a product?",
+            "answer": "Yes — we accept returns within 30 days of delivery for unused items in their original condition and packaging. Personalized items cannot be returned unless damaged or incorrect. To start a return, contact us at support@velnorapets.com."
+          }
+        },
+        "faq4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if my item arrives damaged or incorrect?",
+            "answer": "Please contact us within 7 days of delivery with your order number and photos. We will make it right at no cost to you."
+          }
+        },
+        "faq5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long do refunds take?",
+            "answer": "Approved refunds are processed to your original payment method within 5–10 business days after we receive and inspect the returned item."
+          }
+        },
+        "faq6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your products safe for pets?",
+            "answer": "Yes — every product we carry is tested for pet safety. We only stock non-toxic, pet-safe materials from verified suppliers."
+          }
+        }
+      },
+      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"],
+      "settings": {
+        "kicker": "Common questions",
+        "title": "FAQ"
+      }
     }
   },
   "order": ["hero", "trust-bar", "category-grid", "values", "brand-banner", "faq"]
