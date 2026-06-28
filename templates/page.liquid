@@ -1,0 +1,11 @@
+{% if page.handle == 'about' %}
+  {% section 'about-page' %}
+{% elsif page.handle == 'contact' %}
+  {% section 'contact-page' %}
+{% else %}
+  <div class="sec">
+    <h1 class="sec-title">{{ page.title }}</h1>
+    <div class="sec-rule"></div>
+    <div class="page-content">{{ page.content }}</div>
+  </div>
+{% endif %}

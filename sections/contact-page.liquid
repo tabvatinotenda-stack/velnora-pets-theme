@@ -1,0 +1,80 @@
+<div class="contact-layout">
+  <div class="contact-info">
+    <div class="ci-kicker">Get in touch</div>
+    <div class="ci-title">Contact<br>Velnora Pets</div>
+    <div class="ci-rule"></div>
+    <p class="ci-p">Have a question about an order, a product, or just want to say hi? We'd love to hear from you. We reply within 24 hours.</p>
+    <div class="ci-items">
+      <div class="ci-item">
+        <div class="ci-item-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+        <div><div class="ci-item-label">Email</div><div class="ci-item-val">hello@velnora.com</div></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-item-icon"><i class="ti ti-clock" aria-hidden="true"></i></div>
+        <div><div class="ci-item-label">Response time</div><div class="ci-item-val">Within 24 hours, Mon–Fri</div></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-item-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <div><div class="ci-item-label">Ships from</div><div class="ci-item-val">USA — multiple warehouses</div></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-item-icon"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+        <div><div class="ci-item-label">Returns</div><div class="ci-item-val">30-day hassle-free returns</div></div>
+      </div>
+    </div>
+    <div class="ci-social">
+      <a href="https://instagram.com" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      <a href="https://tiktok.com" class="social-btn" target="_blank" rel="noopener" aria-label="TikTok"><i class="ti ti-brand-tiktok" aria-hidden="true"></i></a>
+      <a href="https://facebook.com" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="cf-title">Send us a message</div>
+    <div class="cf-rule"></div>
+    {%- form 'contact', id: 'ContactForm' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="form-success">
+          <div class="form-success-title">Message sent</div>
+          <div class="form-success-p">Thanks for reaching out! We'll get back to you within 24 hours.</div>
+        </div>
+      {%- else -%}
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="ContactForm-first-name">First name</label>
+            <input class="form-input" type="text" id="ContactForm-first-name" name="contact[first_name]" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ContactForm-last-name">Last name</label>
+            <input class="form-input" type="text" id="ContactForm-last-name" name="contact[last_name]" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ContactForm-email">Email address</label>
+          <input class="form-input" type="email" id="ContactForm-email" name="contact[email]" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ContactForm-topic">Topic</label>
+          <select class="form-select" id="ContactForm-topic" name="contact[topic]">
+            <option>Order enquiry</option>
+            <option>Return / refund</option>
+            <option>Product question</option>
+            <option>Shipping info</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ContactForm-body">Message</label>
+          <textarea class="form-textarea" id="ContactForm-body" name="contact[body]" placeholder="Tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send message</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Page"
+}
+{% endschema %}

@@ -1,0 +1,55 @@
+<div class="cat-page-hero">
+  <a href="{{ routes.root_url }}" class="back-btn">
+    <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to home
+  </a>
+  <div class="cat-page-kicker">{{ collection.metafields.custom.kicker | default: 'Collection' }}</div>
+  <div class="cat-page-title">{{ collection.title }}</div>
+  <div class="cat-page-rule"></div>
+  <div class="cat-page-desc">{{ collection.description }}</div>
+</div>
+
+<div class="sec">
+  {%- if collection.products_count == 0 -%}
+    <div class="empty-state">
+      <div class="empty-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
+      <div class="empty-title">Coming soon</div>
+      <div class="empty-desc">Products for this collection are on their way. Check back soon or browse another category.</div>
+    </div>
+  {%- else -%}
+    <div class="prod-grid">
+      {%- for product in collection.products -%}
+        <div class="prod-card">
+          <a href="{{ product.url }}" class="prod-card-link">
+            <div class="prod-img" style="background:#f5f0e8">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+              {%- else -%}
+                <i class="ti ti-paw" style="color:#2c4a3e;font-size:30px" aria-hidden="true"></i>
+              {%- endif -%}
+            </div>
+            <div class="prod-info">
+              {%- if product.tags contains 'best-seller' -%}
+                <span class="pbadge pbg-gold">Best seller</span>
+              {%- elsif product.tags contains 'new-in' -%}
+                <span class="pbadge pbg-green">New in</span>
+              {%- endif -%}
+              <div class="pname">{{ product.title }}</div>
+              <div class="psub">{{ product.type }}</div>
+              <div class="pprice">{{ product.price | money }}</div>
+            </div>
+          </a>
+          <form action="{{ routes.cart_add_url }}" method="post">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <button type="submit" class="prod-cta">Add to cart</button>
+          </form>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Page"
+}
+{% endschema %}

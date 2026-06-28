@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "settings": {}
+    },
+    "category-grid": {
+      "type": "category-grid",
+      "settings": {}
+    },
+    "values": {
+      "type": "values",
+      "settings": {}
+    },
+    "brand-banner": {
+      "type": "brand-banner",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "trust-bar", "category-grid", "values", "brand-banner", "faq"]
+}

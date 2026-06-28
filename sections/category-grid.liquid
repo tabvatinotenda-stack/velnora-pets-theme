@@ -1,0 +1,59 @@
+<div class="sec">
+  <div class="sec-kicker">Browse by category</div>
+  <div class="sec-title">Shop the collection</div>
+  <div class="sec-rule"></div>
+  <div class="cat-grid">
+
+    {%- assign walk = collections['walk-travel'] -%}
+    <a href="{{ walk.url }}" class="cat-card">
+      <div class="cat-img" style="background:#e8f2ec"><i class="ti ti-walk" style="color:#2c4a3e" aria-hidden="true"></i></div>
+      <div class="cat-body">
+        <div class="cat-name">Walk &amp; travel</div>
+        <div class="cat-desc">Everything you need on the go</div>
+        <div class="cat-tags"><span class="ctag">Harnesses</span><span class="ctag">Bowls</span><span class="ctag">Leashes</span></div>
+        <span class="cat-cta">Shop now <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+    </a>
+
+    {%- assign feeding = collections['feeding-essentials'] -%}
+    <a href="{{ feeding.url }}" class="cat-card">
+      <div class="cat-img" style="background:#f5f0e8"><i class="ti ti-bowl" style="color:#2c4a3e" aria-hidden="true"></i></div>
+      <div class="cat-body">
+        <div class="cat-name">Feeding essentials</div>
+        <div class="cat-desc">Mealtime made stylish</div>
+        <div class="cat-tags"><span class="ctag">Lick mats</span><span class="ctag">Feeding mats</span><span class="ctag">Bowls</span></div>
+        <span class="cat-cta">Shop now <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+    </a>
+
+    {%- assign grooming = collections['grooming-care'] -%}
+    <a href="{{ grooming.url }}" class="cat-card">
+      <div class="cat-img" style="background:#e8f2ec"><i class="ti ti-sparkles" style="color:#2c4a3e" aria-hidden="true"></i></div>
+      <div class="cat-body">
+        <div class="cat-name">Grooming &amp; care</div>
+        <div class="cat-desc">Keep your pet clean</div>
+        <div class="cat-tags"><span class="ctag">Grooming kits</span><span class="ctag">Gloves</span></div>
+        <span class="cat-cta">Shop now <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+    </a>
+
+    {%- assign toys = collections['toys-play'] -%}
+    <a href="{{ toys.url }}" class="cat-card">
+      <div class="cat-img" style="background:#f5f0e8"><i class="ti ti-confetti" style="color:#2c4a3e" aria-hidden="true"></i></div>
+      <div class="cat-body">
+        <div class="cat-name">Toys &amp; play</div>
+        <div class="cat-desc">Fun your pup will love</div>
+        <div class="cat-tags"><span class="ctag">Chew toys</span><span class="ctag">Bundles</span><span class="ctag">Teething</span></div>
+        <span class="cat-cta">Shop now <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Category Grid",
+  "presets": [{ "name": "Category Grid" }]
+}
+{% endschema %}

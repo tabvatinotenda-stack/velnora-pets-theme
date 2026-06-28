@@ -1,0 +1,38 @@
+<footer>
+  <div class="footer-full">
+    <div class="footer-brand">
+      <div class="f-name">Velnora</div>
+      <div class="f-sub">Pets</div>
+      <div class="f-rule"></div>
+      <p class="f-p">Premium pet accessories for dogs who deserve the best. Shipped fast across the USA.</p>
+    </div>
+
+    <div class="f-col">
+      <h4>Shop</h4>
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      {%- endfor -%}
+    </div>
+
+    <div class="f-col">
+      <h4>Company</h4>
+      <a href="{{ pages['about'].url }}">About us</a>
+      <a href="{{ pages['contact'].url }}">Contact</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+    </div>
+
+    <div class="f-col">
+      <h4>Help</h4>
+      <a href="{{ pages['shipping-info'].url }}">Shipping info</a>
+      <a href="{{ pages['returns'].url }}">Returns</a>
+      <a href="https://track.aftership.com" target="_blank" rel="noopener">Track order</a>
+      <a href="{{ pages['contact'].url }}">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="f-bottom">
+    <span class="f-bottom-copy">&copy; {{ 'now' | date: '%Y' }} Velnora Pets. All rights reserved.</span>
+    <span class="f-tagline">Better Living for Every Paw.</span>
+  </div>
+</footer>

@@ -1,0 +1,35 @@
+<header class="nav">
+  <a href="{{ routes.root_url }}" class="nav-logo">
+    <svg width="28" height="25" viewBox="0 0 40 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="7" cy="11" r="4" fill="#c9a96e"/>
+      <circle cx="15" cy="7" r="3.5" fill="#c9a96e"/>
+      <circle cx="25" cy="7" r="3.5" fill="#c9a96e"/>
+      <circle cx="33" cy="11" r="4" fill="#c9a96e"/>
+      <ellipse cx="20" cy="27" rx="11" ry="9" fill="#c9a96e"/>
+    </svg>
+    <div>
+      <div class="nav-name">Velnora</div>
+      <div class="nav-sub">Pets</div>
+    </div>
+  </a>
+
+  <nav class="nav-menu" aria-label="Main navigation">
+    {%- for collection in collections -%}
+      <a class="nav-btn{% if request.path contains collection.url %} active{% endif %}" href="{{ collection.url }}">
+        {{ collection.title }}
+      </a>
+    {%- endfor -%}
+    <a class="nav-btn{% if request.path == '/pages/about' %} active{% endif %}" href="{{ pages['about'].url }}">About us</a>
+    <a class="nav-btn{% if request.path == '/pages/contact' %} active{% endif %}" href="{{ pages['contact'].url }}">Contact</a>
+  </nav>
+
+  <div class="nav-right">
+    <a href="{{ routes.search_url }}" aria-label="Search">
+      <i class="ti ti-search" aria-hidden="true"></i>
+    </a>
+    <a href="{{ routes.cart_url }}" class="cart-wrap" aria-label="Cart">
+      <i class="ti ti-shopping-bag" aria-hidden="true"></i>
+      <span class="cart-badge" id="cart-count">{{ cart.item_count }}</span>
+    </a>
+  </div>
+</header>

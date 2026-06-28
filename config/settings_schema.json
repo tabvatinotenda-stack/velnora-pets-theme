@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Velnora Pets",
+    "theme_version": "1.0.0",
+    "theme_author": "Velnora Pets",
+    "theme_documentation_url": "https://velnorapets.com",
+    "theme_support_url": "https://velnorapets.com/pages/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary (Forest Green)",
+        "default": "#2c4a3e"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (Gold)",
+        "default": "#c9a96e"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background (Cream)",
+        "default": "#f9f6f0"
+      }
+    ]
+  }
+]
