@@ -1,8 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "hero_image": "shopify://shop_images/91cf34e2d101b21b92a565be666ba0d3.webp"
+      }
     },
     "trust-bar": {
       "type": "trust-bar",
@@ -22,8 +33,18 @@
     },
     "faq": {
       "type": "faq",
-      "settings": {}
+      "settings": {
+        "kicker": "Common questions",
+        "title": "FAQ"
+      }
     }
   },
-  "order": ["hero", "trust-bar", "category-grid", "values", "brand-banner", "faq"]
+  "order": [
+    "hero",
+    "trust-bar",
+    "category-grid",
+    "values",
+    "brand-banner",
+    "faq"
+  ]
 }
